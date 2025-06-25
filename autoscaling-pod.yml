@@ -1,0 +1,25 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: my-app
+  minReplicas: 2
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 80
+
+
+#Cluster Autoscaler:
+
+#Automatically adjusts the number of nodes in your EKS cluster.
+
+#Installed via Helm or eksctl:
+
+# eksctl utils install-vpc-controllers --cluster my-cluster
