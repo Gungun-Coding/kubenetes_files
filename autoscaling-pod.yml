@@ -23,3 +23,4 @@ spec:
 #Installed via Helm or eksctl:
 
 # eksctl utils install-vpc-controllers --cluster my-cluster
+#kubectl autoscale deployment your-app --cpu-percent=70 --min=1 --max=5
